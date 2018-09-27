@@ -1,5 +1,5 @@
 <template>
-    <div>   
+    <div class="md-scrollbar">   
         <router-view/>
     </div>
 </template>
