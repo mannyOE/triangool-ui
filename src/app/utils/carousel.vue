@@ -1,6 +1,6 @@
 <template>
    <swiper :options="swiperOption" style="height: auto">
-        <swiper-slide v-for="item in images" :key="item.image" style="background-repeat:no-repeat; height: 400px; background-size:cover;"   :style="{ 'background-image': 'url(' + item.image + ')' }">
+        <swiper-slide v-for="item in images" :key="item.image" style="background-repeat:no-repeat; height: 450px; background-size:cover;"   :style="{ 'background-image': 'url(' + item.image + ')' }">
           
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
