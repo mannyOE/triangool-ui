@@ -4,6 +4,10 @@ import createPersistedState from 'vuex-persistedstate';
 import * as Cookies from 'js-cookie';
 
 
+import General from './modules/General'
+import UserCreds from './modules/userCredentials'
+import Auth from './modules/auth'
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -12,10 +16,13 @@ export default new Vuex.Store({
       key: 'pioneerState',
       getState: key => Cookies.getJSON(key),
       setState: (key, state) => Cookies.set(key, state, { expires: 14 }),
-      paths: []
+      paths: ['UserCreds','General']
     })
   ],
   modules: {
+   General,
+   UserCreds,
+   Auth,
    
   }
 });

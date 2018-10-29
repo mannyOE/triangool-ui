@@ -1,49 +1,28 @@
 <template>
 	<div class="container" style="margin: 40px auto;">		    
 		    <div class=" row">
-		      <div class="col-lg-3  col-md-4  col-xs-12">
+		      <div class="col-lg-6  col-md-4  col-xs-12">
 		        <md-field>
-		          <el-select v-model="state" name="movies" placeholder="Select State" class="md-elevation-5" style="color: #000 !important;">
-				    <el-option
-				      v-for="item in 4"
-				      :key="item"
-				      :label="item"
-				      :value="item">
-				    </el-option>
-			    </el-select>
+		          <el-input v-model="search" placeholder="What are you looking for?" class="md-elevation-5">
+			    </el-input>
 		        </md-field>
 		      </div>
 
 		      <div class="col-lg-3  col-md-4  col-xs-12">
 		        <md-field>
-		          <el-select v-model="university" placeholder="Select University" class="md-elevation-5">
+		          <el-select v-model="state" name="movies" filterable placeholder="Select State" class="md-elevation-5" style="color: #000 !important; width: 100%;">
 				    <el-option
-				      v-for="item in 4"
-				      :key="item"
-				      :label="item"
-				      :value="item">
+				      v-for="state in $states"
+				      :key="state.value"
+				      :label="state.show"
+				      :value="state.value">
 				    </el-option>
 			    </el-select>
 		        </md-field>
 		      </div>
-
-		      <div class="col-lg-3  col-md-4  col-xs-12">
-		        <md-field>
-		          <el-select v-model="type" placeholder="Select Type" class="md-elevation-5">
-				    <el-option
-				      v-for="item in 4"
-				      :key="item"
-				      :label="item"
-				      :value="item">
-				    </el-option>
-			    </el-select>
-		        </md-field>
-		      </div>
-
-
 		       <div class="col-lg-3  col-md-4  col-xs-12">
 		        <md-field>
-		          <el-button class="btn-block md-elevation-5" type="success">Find Your Accomodation
+		          <el-button class="btn-block md-elevation-5" type="success">Find Your Item
 		          	<span style="margin-left: 12px;" class="fa fa-search"></span>
 		          </el-button>
 		        </md-field>
@@ -67,6 +46,7 @@
         university: null,
         state: null,
         type: null,
+        search: '',
       }
     }
   }

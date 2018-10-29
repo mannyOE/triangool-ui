@@ -1,7 +1,7 @@
 {
   "name": "triangoolate",
   "version": "1.1.0",
-  "description": "a lotto game console",
+  "description": "A classifieds app for college students in nigeria",
   "author": "Ahman Emmanuel <ahmanemmanuel@gmail.com>",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "axios": "^0.18.0",
     "element-ui": "^2.4.7",
     "js-cookie": "^2.2.0",
+    "mdbvue": "^4.8.0",
     "vee-validate": "^2.1.0-beta.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.3",

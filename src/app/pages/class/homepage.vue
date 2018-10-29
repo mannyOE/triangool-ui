@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="row">
+		<div class="row" style="padding-left: 20px; padding-right: 20px;">
 			<Carousel :images="images"/>
 		</div>
 		<SearchForm/>
@@ -11,8 +11,8 @@
         <div class="container">
           <div class="row">            
             <div class="col-md-6 col-sm-12 col-xs-12">
-              <h2 class="title-hl">Property Highlights</h2>
-              <p class="content-hl">Extensive upgrades and thorough maintenance have kept this home in prime condition. Hardwood floors and new carpets create a very comfortable living space.</p>
+              <h2 class="title-hl">Triangoolate Highlights</h2>
+              <p class="content-hl">Keeping you informed about every comfortable living space in the vicinity of your university as well as providing contacts for other household goods and service.</p>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <div class="features-box">
@@ -66,16 +66,15 @@
                     </div>
                     <div class="features-content">
                       <h4>
-                        Large play center in yard
+                        Proximity to Campus
                       </h4>
                       <p>
-                        Your kids will be happy having all these things around
+                        You will find there is no hassle with getting to the campus everyday
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <a href="#" class="btn btn-common">Learn More</a>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <Carousel :images="featureImages"/>
@@ -86,12 +85,6 @@
       <!-- End Property Highlights Section --> 
 
       <Agents/>
-
-
-
-       
-    <Counter/>
-
 
 	</div>
 </template>

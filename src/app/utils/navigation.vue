@@ -1,28 +1,34 @@
 <template>
-	 <md-toolbar class="btn-primary back md-elevation-10">
-      <h3 class="md-title">
-        <img style="width: 100px; height: 60px;" :src="require('@/assets/class/img/logo.png')">
+    <div>
+    <md-toolbar class="md-accent back" md-elevation="1">
+      <h3 class="md-title" style="flex: 1">
+        <img style="width: 120px; height: 40px;" :src="require('@/assets/triangoolate-w-b.png')">
       </h3>
-          <md-tabs class="md-primary mrg" md-alignment="right" :md-active-tab="activePage">
-            <md-tab id="home page" :to="{name: 'home page'}" md-label="Home"></md-tab>
-            <md-tab id="properties" :to="{name: 'properties'}" md-label="Listings"></md-tab>
-            <md-tab id="login" :to="{name: 'login'}" md-label="Login"></md-tab>
-            <md-tab id="signup" :to="{name: 'signup'}" md-label="Signup"></md-tab>
-            <md-tab id="contact page" :to="{name: 'contact page'}" md-label="Contact"></md-tab>
-          </md-tabs>
+      <md-button class="hidden-xs" :class="activePage=='home page'?'btn-warning':''" :to="{name: 'home page'}">Home</md-button>
+      <md-button class="hidden-xs" :class="activePage=='accomodations page'?'btn-warning':''" :to="{name: 'accomodations page'}">Student Accomodations</md-button>
+      <md-button class="hidden-xs" :class="activePage=='properties'?'btn-warning':''" :to="{name: 'properties'}">Home Appliances</md-button>
+      <md-button class="hidden-xs" :class="activePage=='phones page'?'btn-warning':''" :to="{name: 'phones page'}">Phones</md-button>
+      <md-button class="btn-success" :to="{name: 'post ad'}">POST AD</md-button>
+      <el-button class="visible-xs" style="background-color: transparent !important; border: none;" @click="menuVisible">
+        <i class="fa fa-bars" style="color: #fff;"></i>
+      </el-button>      
     </md-toolbar>
+  </div>
 </template>
 
 <script type="text/javascript">
-  
+  import { mapActions, mapGetters } from 'vuex';
   export default {
     data(){
       return {
-        menuVisible: true,
+        
       }
     },
     methods: {
-    	
+      ...mapActions('General', ['menuState']),
+      menuVisible(){
+        this.menuState(true);
+      }
     },
     computed: {
       activePage(){
@@ -46,6 +52,7 @@
 	}
   .back {
     background-color: #333333 !important;
+    color: #fff !important;
   }
 	
 </style>
