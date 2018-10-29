@@ -11,6 +11,7 @@ import Contact from "@/app/pages/class/contact"
 import Confirmation from "@/app/pages/class/confirmation"
 import Verification from "@/app/pages/class/verification"
 import ForgotPassword from "@/app/pages/class/forgot_password"
+import ChangePassword from "@/app/pages/class/change_password"
 
 // dashboard pages
 
@@ -67,6 +68,11 @@ const router = new Router({
           path: 'forgot-passsword',
           name: 'forgot-passsword',
           component: ForgotPassword
+        },
+        {
+          path: 'change-password/:token',
+          name: 'change-password',
+          component: ChangePassword
         },
         {
           path: 'verify-user/:token',

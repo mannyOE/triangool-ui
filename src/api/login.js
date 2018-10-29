@@ -6,9 +6,10 @@ export default {
   resource: {
     res: 'api/users/login',
     register: 'api/users/register',
-    confirmPassword: 'api/users/confirm_password',
+    confirmPassword: 'api/users/new_password',
     resend_confirmation: '/api/users/resend_confirmation',
     confirm_email: 'api/users/confirm_email',
+    recover: 'api/users/recover_password', 
     resUser: 'session',
   },
 
@@ -41,38 +42,13 @@ export default {
   },
 
   forgotPassword(dargs){
-    return blackAxios.post('/recover_password', dargs)
+    return blackAxios.post(this.resource.recover, dargs)
     .then(function (response) {
 
-      print('Sent Email Details: ', response);
-
-
-
-      return response;
+      return response.data;
     })
     .catch(function (error) {
-      let results = {};
-      let errMsg = 'Recover Password failed. ' + error.message;
-      let customEMsg;
-
-      if (error.response) {
-        // The request was made, but the server responded with a status code
-        // that falls out of the range of 2xx
-        let statusCode = error.response.status;
-        print(error.response.data, statusCode);
-
-        // Custom Status msgs by status code
-        customEMsg = authErrMsg(statusCode, error.message);
-        errMsg = 'sending email failed. ' + customEMsg;
-
-        results.autherror = isBadReq(statusCode);
-        results.message = errMsg;
-        results.status = false;
-      } else {
-        results.message = errMsg;
-      }
-
-      return results;
+      return error;
   })
 },
 
@@ -84,16 +60,10 @@ confirmPassword (dargs) {
   return blackAxios.post(this.resource.confirmPassword, dargs)
   .then(function (response) {
 
-    return getById.success({
-      response: response,
-      resource: '',
-    });
+    return response.data;
   })
   .catch(function (error) {
-    return getById.error({
-      error: error,
-      defaultmsg: ''
-    });
+    return error;
   });
 },
 resend_confirmation (dargs) {

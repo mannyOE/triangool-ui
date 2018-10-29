@@ -1,6 +1,6 @@
 <template>
 	 <div>
-    <md-toolbar class="btn-primary back" style="margin-top: 120px;">
+    <md-toolbar class="btn-primary back footer" style="">
        <div class="site-info text-center">
           <p>&copy; All rights reserved {{new Date().getFullYear()}} - Designed & Developed by <a href="http://jaccuzzi.io">Jaccuzzi</a></p>
         </div> 
@@ -74,5 +74,16 @@
   .back {
     background-color: #333333 !important;
   }
+
+  
+.footer {
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
 	
 </style>

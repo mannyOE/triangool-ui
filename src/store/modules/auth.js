@@ -82,6 +82,27 @@ const actions = {
           return result;
     })
   },
+  send_password_token ({ dispatch, commit, state }, args) {
+
+    commit('loading');
+
+    return api.forgotPassword(args)
+    .then(function (result) {
+
+          return result;
+    })
+  },
+
+  send_password ({ dispatch, commit, state }, args) {
+
+    commit('loading');
+
+    return api.confirmPassword(args)
+    .then(function (result) {
+        console.log(result);
+          return result;
+    })
+  },
   confirm_email({ dispatch, commit, state }, args) {
 
     return api.confirm_email(args)

@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="shortcut icon" href="/static/triangoolate-icon.png">
     <style>
-      #google-map,
-      body,
-      html {
+      #google-map {
         padding: 0;
-        height: 400px;
+      }
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        margin-bottom: 60px; /* Margin bottom by footer height */
       }
     </style>
   </head>

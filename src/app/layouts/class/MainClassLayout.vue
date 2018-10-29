@@ -2,7 +2,7 @@
   <div>
     <Navigation style="margin-bottom: 10px"/>
     <router-view/>
-    <Foter/>
+    <!-- <Foter/> -->
   </div>
 </template>
 

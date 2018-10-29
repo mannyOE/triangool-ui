@@ -51,7 +51,7 @@
                   <!-- <md-field> -->
                     <div class="row">
                       <div class="col-xs-12 col-md-6">
-                        <router-link :to="{name: 'forgot-passsword'}" class="text-right" style="font-size: 13px;font-weight: bolder; color: #333 !important;">Forgot Password</router-link>  
+                        <router-link :to="{name: 'forgot-passsword'}" class="text-center" style="font-size: 13px;font-weight: bolder; color: #333 !important;">Forgot Password</router-link>  
                       </div>
                       <div class="col-xs-12 col-md-6" style="font-size: 13px; color: #333 !important;">
                          <router-link :to="{name: 'signup'}" class="text-center" style="font-size: 13px; font-weight: bolder; color: #333 !important;" >Signup Here</router-link>

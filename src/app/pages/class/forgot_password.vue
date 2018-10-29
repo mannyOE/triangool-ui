@@ -27,7 +27,7 @@
               <h3>
                 Forgot Password
               </h3>
-              <form class="login-form">
+              <form class="login-form" v-if="mail_sent" @submit.prevent="recoverController">
                 <div class="form-group" style="margin-top: -10px">
                   <md-field>
                     <el-input class="md-elevation-5" v-model="user.email" placeholder="Email">     
@@ -36,7 +36,7 @@
                   </md-field> 
                 </div>
                 <md-field>
-                <el-button class="btn-block md-elevation-5" type="success">Submit
+                <el-button class="btn-block md-elevation-5" @click="recoverController" type="success">Submit
                 </el-button>
               </md-field>
               
@@ -53,6 +53,10 @@
                   <!-- </md-field>     -->
               </div>
               </form>
+
+              <div v-else>
+              <p>Recovery Token sent to your email, click on the link provided and enter a new password to continue.</p>
+              </div>
               
             </div>
           </div>
@@ -65,7 +69,7 @@
 </template>
 
 <script type="text/javascript">
-  
+  import { mapActions, mapGetters } from 'vuex';
   export default {
     props: ['images'],
     data(){
@@ -73,7 +77,50 @@
         rememberme: false,
         user: {
           email: '',
+        },
+        notSumitted: true,
+      }
+    },
+    computed: {
+      ...mapGetters('Auth', ['autherror','autherrorMsg']),
+      mail_sent(){
+        if(this.$route.query.sent){
+          return false;
         }
+        return true;
+      }
+    },
+    methods: {
+      ...mapActions('Auth', [
+          'send_password_token'
+        ]),
+      recoverController(){
+        var t = this;
+        if(t.user.email.length < 5){
+          t.$notify({
+            type: 'warning',
+            message: 'Invalid Email Provided',
+            title: 'Failed to send token'
+          });
+          return;
+        }
+        this.send_password_token(this.user).then(result=>{
+          if(!result.success){
+            t.$notify({
+              type: 'warning',
+              message: result.message,
+              title: 'Failed to send token'
+            });
+            return;
+          }else{
+            t.$notify({
+              type: 'success',
+              message: result.message,
+              title: 'token sent'
+            });
+            t.$router.push({name: 'forgot-passsword', query: {sent: true}});
+          }
+        });
       }
     }
   }
