@@ -7,7 +7,6 @@ import Home from "@/app/pages/class/homepage"
 import Listings from "@/app/pages/class/listing"
 import Login from "@/app/pages/class/login"
 import Signup from "@/app/pages/class/signup"
-import Contact from "@/app/pages/class/contact"
 import Confirmation from "@/app/pages/class/confirmation"
 import Verification from "@/app/pages/class/verification"
 import ForgotPassword from "@/app/pages/class/forgot_password"
@@ -42,12 +41,12 @@ const router = new Router({
         {
           path: 'accomodations',
           name: 'accomodations page',
-          component: Contact
+          component: Listings
         },
         {
           path: 'phones',
           name: 'phones page',
-          component: Contact
+          component: Listings
         },
         {
           path: 'properties',
