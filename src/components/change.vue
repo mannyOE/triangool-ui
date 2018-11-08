@@ -26,7 +26,7 @@
                 </div> 
 
                  <md-field>
-                <el-button class="btn-block md-elevation-5" @click.prevent="submitController()" type="success">Submit
+                <el-button :loading="loading" class="btn-block md-elevation-5" @click.prevent="submitController()" type="success">Submit
                 </el-button>
               </md-field>
 
@@ -53,7 +53,8 @@
         user: {
           password: '',
           password2: ''
-        }
+        },
+        loading: false,
       }
     },
     computed: {
@@ -79,19 +80,22 @@
           password: t.user.password,
           token: t.$route.params.token
         }
+        t.loading = true;
         this.send_password(data).then(result=>{
           if(!result.success){
             t.$notify({
               type: 'warning',
               message: result.message,
               title: 'Password Change'
-            })
+            });
+            t.loading = false;
           }else{
             t.$notify({
               type: 'success',
               message: result.message,
               title: 'Password Change'
-            })
+            });
+            t.loading = false;
             t.$router.push({name: 'login'});
           }
         });

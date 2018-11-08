@@ -82,7 +82,7 @@
                 </div>           
                 
                 <md-field>
-                <el-button class="btn-block md-elevation-5" @click="registerController" type="success">Register
+                <el-button :loading="loading" class="btn-block md-elevation-5" @click="registerController" type="success">Register
                 </el-button>
               </md-field>
                <div class="form-group" style="margin-top: 0px">
@@ -125,6 +125,7 @@
           phone: '',
         },
         error: null,
+        loading: false,
       }
     },
     computed: {
@@ -165,19 +166,22 @@
           this.error = "Please Accept Our Terms and Conditions";
           return;
         }
+        t.loading = true;
         this.register(this.user).then(result=>{
           if(!result.success){
             t.$notify({
               type: 'warning',
               message: result.message,
               title: 'Registeration Failed'
-            })
+            });
+            t.loading = false;
           }else{
             t.$notify({
               type: 'success',
               message: result.message,
               title: 'Registeration Done'
             });
+            t.loading = false;
             t.$router.push({name:'confirmation', query: {email: t.user.email}})
           }
         });

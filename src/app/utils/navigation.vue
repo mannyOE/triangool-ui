@@ -39,7 +39,7 @@
 </script>
 
 
-<style>
+<style scoped>
 	.mrg {
 		margin-left: 220px;	
 	}

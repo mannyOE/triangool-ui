@@ -27,7 +27,7 @@
               <h3>
                 Login
               </h3>
-              <form class="login-form">
+              <form class="login-form" @submit="loginController()">
                 <div class="form-group" style="margin-top: -10px">
                   <md-field>
                     <el-input class="md-elevation-5" v-model="user.email" placeholder="Email">     
@@ -43,7 +43,7 @@
                   </md-field> 
                 </div> 
                 <md-field>
-                <el-button class="btn-block md-elevation-5" @click.prevent="loginController()" type="success">Submit
+                <el-button :loading="loading" class="btn-block md-elevation-5" @click.prevent="loginController()" type="success">Submit
                 </el-button>
               </md-field>
               
@@ -81,28 +81,47 @@
         user: {
           email: '',
           password: ''
-        }
+        },
+        loading: false,
       }
     },
     computed: {
       ...mapGetters('Auth', ['autherror','autherrorMsg'])
     },
+    mounted(){
+      if(this.$route.name === 'logout'){
+        this.logout();
+        this.$router.push({name:'login'})
+      }
+    },
     methods: {
       ...mapActions('Auth', [
           'login'
         ]),
+      ...mapActions('UserCreds', [
+          'logout'
+        ]),
 
       loginController(){
         var t = this;
+
+        t.loading = true;
         this.login(this.user).then(result=>{
           if(!result.success){
             t.$notify({
               type: 'warning',
               message: result.message,
-              title: 'Login Failed'
-            })
+              title: 'Login Attempt Failed'
+            });
+            t.loading = false;
           }else{
-
+            t.$notify({
+              type: 'success',
+              message: result.message,
+              title: 'Login Successfull'
+            });
+            t.$router.push({name:'post ad'});
+            t.loading = false;
           }
         });
       }

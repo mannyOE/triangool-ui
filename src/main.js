@@ -23,6 +23,10 @@ Vue.use(ElementUI);
 import 'vue-material/dist/vue-material.min.css'
 
 
+import jQuery from './assets/dist/js/jquery-2.2.3.min.js'
+import app from './assets/dist/js/app.js'
+import bootstrap from './assets/dist/js/bootstrap.min.js'
+
 
 // Vue.use(VueMaterial)
 
@@ -32,6 +36,9 @@ require ('./assets/class/css/main.css')
 require ('./assets/class/fonts/font-awesome.min.css')
 require ('./assets/class/css/bootstrap.min.css')
 
+
+require ('./assets/dist/css/AdminLTE.css')
+require ('./assets/dist/css/skins/skin-blue.min.css')
 
 
 

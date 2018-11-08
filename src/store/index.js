@@ -7,6 +7,7 @@ import * as Cookies from 'js-cookie';
 import General from './modules/General'
 import UserCreds from './modules/userCredentials'
 import Auth from './modules/auth'
+import Listing from './modules/Listing'
 
 Vue.use(Vuex);
 
@@ -23,6 +24,6 @@ export default new Vuex.Store({
    General,
    UserCreds,
    Auth,
-   
+   Listing,
   }
 });

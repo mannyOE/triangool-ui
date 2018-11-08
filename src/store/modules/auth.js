@@ -29,10 +29,28 @@ const actions = {
     return api.login(args)
       .then(function (result) {
         if (result.error === undefined) {
-           dispatch('General/setLoadingState', null, {root: true})
-          .then(function (status) {
-            // Logged out
-          });
+          console.log(result)
+          if(result.success){
+            dispatch('UserCreds/setAuthenticated', null, {root: true})
+            .then(function (status) {
+              // Logged out
+            });
+
+            dispatch('UserCreds/setUser', result.result.user, {root: true})
+            .then(function (status) {
+              // Logged out
+            });
+
+            dispatch('UserCreds/setToken', result.result.token, {root: true})
+            .then(function (status) {
+              // Logged out
+            });
+
+            dispatch('UserCreds/setEnabled', result.result.enabled, {root: true})
+            .then(function (status) {
+              // Logged out
+            });
+          }
           return result;
         } else {
           // Login attempt failed
@@ -98,6 +116,26 @@ const actions = {
     commit('loading');
 
     return api.confirmPassword(args)
+    .then(function (result) {
+        console.log(result);
+          return result;
+    })
+  },
+  change_password ({ dispatch, commit, state }, args) {
+
+    commit('loading');
+
+    return api.changePassword(args)
+    .then(function (result) {
+        console.log(result);
+          return result;
+    })
+  },
+  updateUser ({ dispatch, commit, state }, args) {
+
+    commit('loading');
+
+    return api.update_user(args)
     .then(function (result) {
         console.log(result);
           return result;

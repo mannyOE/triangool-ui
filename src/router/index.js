@@ -12,6 +12,14 @@ import Verification from "@/app/pages/class/verification"
 import ForgotPassword from "@/app/pages/class/forgot_password"
 import ChangePassword from "@/app/pages/class/change_password"
 
+
+
+import dash from "@/app/layouts/dash/dashLayout"
+
+import dashHome from "@/app/pages/dash/home"
+import Settings from "@/app/pages/dash/settings"
+
+
 // dashboard pages
 
 
@@ -58,6 +66,13 @@ const router = new Router({
           name: 'login',
           component: Login
         },
+
+        {
+          path: 'logout',
+          name: 'logout',
+          component: Login
+        },
+
         {
           path: 'signup-page',
           name: 'signup',
@@ -89,18 +104,41 @@ const router = new Router({
     {
       path: '/dash',
       name: 'post ad',
-      components: { default:classLayout},
+      components: { default:dash},
       meta: {requiresAuth: true},
-      redirect: {name: 'home page2'},
+      redirect: {name: 'dashboard'},
       children: [
         {
           path: 'home',
-          name: 'home page2',
-          component: Home
+          name: 'dashboard',
+          component: dashHome
+        },
+
+        {
+          path: 'add-item',
+          name: 'add-items',
+          component: dashHome
+        },
+
+        {
+          path: 'all-items',
+          name: 'all-items',
+          component: dashHome
+        },
+
+        {
+          path: 'user/profile',
+          name: 'settings',
+          component: Settings
         },
         
       ]
-    }
+    },
+    {
+          path: '/user/dashboard',
+          name: 'dash',
+          component: dash
+        },
     
   ]
 });
@@ -110,7 +148,7 @@ router.beforeEach((to, from, next) => {
     // this route requires authentiication, check if logged in
     // if not, redirect to login page.
     let fmsg = 'Please login to access this page'
-    if (!store.state.General.sub.isAuth) {
+    if (!store.state.UserCreds.sub.isAuth) {
       next({
         name: 'login',
         query: { redirectUrl: to.fullPath }

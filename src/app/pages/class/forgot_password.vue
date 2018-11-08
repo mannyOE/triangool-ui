@@ -36,7 +36,7 @@
                   </md-field> 
                 </div>
                 <md-field>
-                <el-button class="btn-block md-elevation-5" @click="recoverController" type="success">Submit
+                <el-button :loading="loading" class="btn-block md-elevation-5" @click="recoverController" type="success">Submit
                 </el-button>
               </md-field>
               
@@ -79,6 +79,7 @@
           email: '',
         },
         notSumitted: true,
+        loading: false,
       }
     },
     computed: {
@@ -104,6 +105,7 @@
           });
           return;
         }
+        t.loading = true;
         this.send_password_token(this.user).then(result=>{
           if(!result.success){
             t.$notify({
@@ -111,6 +113,7 @@
               message: result.message,
               title: 'Failed to send token'
             });
+            t.loading = false;
             return;
           }else{
             t.$notify({
@@ -118,6 +121,7 @@
               message: result.message,
               title: 'token sent'
             });
+            t.loading = false;
             t.$router.push({name: 'forgot-passsword', query: {sent: true}});
           }
         });
