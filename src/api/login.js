@@ -7,9 +7,11 @@ export default {
     res: 'api/users/login',
     register: 'api/users/register',
     confirmPassword: 'api/users/new_password',
+    changePassword: 'api/users/change_password',
     resend_confirmation: '/api/users/resend_confirmation',
     confirm_email: 'api/users/confirm_email',
-    recover: 'api/users/recover_password', 
+    recover: 'api/users/recover_password',
+    update: 'api/users/update', 
     resUser: 'session',
   },
 
@@ -58,6 +60,35 @@ confirmPassword (dargs) {
    */
 
   return blackAxios.post(this.resource.confirmPassword, dargs)
+  .then(function (response) {
+
+    return response.data;
+  })
+  .catch(function (error) {
+    return error;
+  });
+},
+
+changePassword (dargs) {
+  /**
+   * Retrieve all devs and pms on zeedas without team
+   */
+
+  return blackAxios.post(this.resource.changePassword, dargs)
+  .then(function (response) {
+
+    return response.data;
+  })
+  .catch(function (error) {
+    return error;
+  });
+},
+update_user (dargs) {
+  /**
+   * Retrieve all devs and pms on zeedas without team
+   */
+
+  return blackAxios.post(this.resource.update, dargs)
   .then(function (response) {
 
     return response.data;

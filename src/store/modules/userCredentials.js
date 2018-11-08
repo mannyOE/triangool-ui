@@ -5,13 +5,14 @@ const state = {
     user: {},
     isAuth: false,
     token: null,
+    enabled: null,
   }
 }
 
 // getters
 const getters = {
   user: state => state.sub.user,
-  // userid: state => state.sub.userid,
+  enabled: state => state.sub.enabled,
   isAuth: state => state.sub.isAuth,
   token: state => state.sub.token,
 }
@@ -31,6 +32,14 @@ const actions = {
      * Save the user's token in state
      */
     commit('setToken', token);
+    return true;
+  },
+
+  setEnabled ({ dispatch, commit, state }, enabled) {
+    /**
+     * Save the user's token in state
+     */
+    commit('setEnabled', enabled);
     return true;
   },
 
@@ -66,7 +75,7 @@ const actions = {
     const params = dargs.parameters;
     const storeAction = dargs.action;
     const token = state.sub.token;
-
+    console.log(state.sub);
     // Add token to args
     params.token = token;
     // Call action and return promise
@@ -79,6 +88,10 @@ const actions = {
 const mutations = {
   setToken (state, val) {
     state.sub.token = val || null;
+  },
+
+  setEnabled (state, val) {
+    state.sub.enabled = val || false;
   },
 
   setUser (state, val) {
