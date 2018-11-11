@@ -291,7 +291,6 @@
       <!-- /.row -->
 
     </section>
-    <!-- /.		    <!-- /.content -->
 	 </div>
 </template>
 

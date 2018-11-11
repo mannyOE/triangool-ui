@@ -1,5 +1,5 @@
 <template>
-	<div class="hold-transition skin-blue sidebar-mini">
+	<div class="hold-transition skin-blue sidebar-mini layout-boxed">
 		<div class="wrapper">
 
 		  <!-- Main Header -->
@@ -111,15 +111,41 @@
 		        <li class="header">Menu</li>
 		        <!-- Optionally, you can add icons to the links -->
 		        <li :class="activeLink('dashboard')?'active':''"><router-link :to="{name:'dashboard'}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></router-link></li>
-		        <li class="treeview" :class="activeLink('add-items')||activeLink('all-items')?'active':''">
-		          <a href="#"><i class="fa fa-dollar"></i> <span>My Items</span>
+		        <li class="treeview" :class="activeLink('add-items-app')||activeLink('all-items-app')?'active':''">
+		          <a href="#"><i class="fa fa-dollar"></i> <span>Appartments</span>
 		            <span class="pull-right-container">
 		              <i class="fa fa-angle-left pull-right"></i>
 		            </span>
 		          </a>
 		          <ul class="treeview-menu">
-		            <li :class="activeLink('add-items')?'active':''"><router-link :to="{name:'add-items'}">Add Item</router-link></li>
-		            <li :class="activeLink('all-items')?'active':''"><router-link :to="{name:'all-items'}">View All Items</router-link></li>
+		            <li :class="activeLink('add-items-app')?'active':''"><router-link :to="{name:'add-items-app'}">Add Item</router-link></li>
+		            <li :class="activeLink('all-items-app')?'active':''"><router-link :to="{name:'all-items-app'}">View All Items</router-link></li>
+		          </ul>
+		        </li>
+
+
+						<li class="treeview" :class="activeLink('add-items-ele')||activeLink('all-items-ele')?'active':''">
+		          <a href="#"><i class="fa fa-dollar"></i> <span>Electronics</span>
+		            <span class="pull-right-container">
+		              <i class="fa fa-angle-left pull-right"></i>
+		            </span>
+		          </a>
+		          <ul class="treeview-menu">
+		            <li :class="activeLink('add-items-ele')?'active':''"><router-link :to="{name:'add-items-ele'}">Add Item</router-link></li>
+		            <li :class="activeLink('all-items-ele')?'active':''"><router-link :to="{name:'all-items-ele'}">View All Items</router-link></li>
+		          </ul>
+		        </li>
+
+
+						<li class="treeview" :class="activeLink('add-items-hou')||activeLink('all-items-hou')?'active':''">
+		          <a href="#"><i class="fa fa-dollar"></i> <span>Household</span>
+		            <span class="pull-right-container">
+		              <i class="fa fa-angle-left pull-right"></i>
+		            </span>
+		          </a>
+		          <ul class="treeview-menu">
+		            <li :class="activeLink('add-items-hou')?'active':''"><router-link :to="{name:'add-items-hou'}">Add Item</router-link></li>
+		            <li :class="activeLink('all-items-hou')?'active':''"><router-link :to="{name:'all-items-hou'}">View All Items</router-link></li>
 		          </ul>
 		        </li>
 		        <li :class="activeLink('settings')?'active':''"><router-link :to="{name:'settings'}"><i class="fa fa-users"></i> <span>Profile</span></router-link></li>

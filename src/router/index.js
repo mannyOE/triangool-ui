@@ -17,6 +17,10 @@ import ChangePassword from "@/app/pages/class/change_password"
 import dash from "@/app/layouts/dash/dashLayout"
 
 import dashHome from "@/app/pages/dash/home"
+import newItem from "@/app/pages/dash/new_item"
+
+import newAppartment from "@/app/pages/dash/new_appartment"
+import newElectronic from "@/app/pages/dash/new_electronic"
 import Settings from "@/app/pages/dash/settings"
 
 
@@ -115,14 +119,39 @@ const router = new Router({
         },
 
         {
-          path: 'add-item',
-          name: 'add-items',
+          path: 'add-household-item',
+          name: 'add-items-hou',
+          component: newItem
+        },
+
+        {
+          path: 'all-household-items',
+          name: 'all-items-hou',
           component: dashHome
         },
 
         {
-          path: 'all-items',
-          name: 'all-items',
+          path: 'add-appartment-item',
+          name: 'add-items-app',
+          component: newAppartment
+        },
+
+        {
+          path: 'all-appartment-items',
+          name: 'all-items-app',
+          component: dashHome
+        },
+
+
+        {
+          path: 'add-electronic-item',
+          name: 'add-items-ele',
+          component: newElectronic
+        },
+
+        {
+          path: 'all-electronic-items',
+          name: 'all-items-ele',
           component: dashHome
         },
 

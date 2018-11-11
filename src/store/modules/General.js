@@ -3,7 +3,8 @@
 const state = {
   sub: {
     loading: false, 
-    menu: false   
+    menu: false,
+    images: [],   
   }
 }
 
@@ -11,6 +12,7 @@ const state = {
 const getters = {
   loading: state => state.sub.loading,
   menu: state => state.sub.menu,
+  images: state => state.sub.images,
 }
 
 // actions
@@ -23,6 +25,28 @@ const actions = {
      * Save the user's details in state
      */
     commit('setUser', user);
+    return true;
+  },
+  addImage ({ dispatch, commit, state }, image) {
+    /**
+     * Save the user's details in state
+     */
+    commit('addImages', image);
+    return true;
+  },
+  emptyImages ({ dispatch, commit, state }) {
+    /**
+     * Save the user's details in state
+     */
+    commit('emptyImages');
+    return true;
+  },
+
+  removeImage ({ dispatch, commit, state }, index) {
+    /**
+     * Save the user's details in state
+     */
+    commit('removeImage', index);
     return true;
   },
 
@@ -73,6 +97,15 @@ const mutations = {
   menu (state, menu) {
     state.sub.menu = menu;
   },
+  addImages (state, image){
+    state.sub.images.push(image);
+  },
+  emptyImages (state, image){
+    state.sub.images = [];
+  },
+  removeImage(state, index){
+    state.sub.images.splice(index, 1);
+  }
 }
 
 export default {

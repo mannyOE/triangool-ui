@@ -1,10 +1,12 @@
 <template>
 	<div>
+		<SearchForm/>
 		<div class="row" style="padding-left: 20px; padding-right: 20px;">
 			<Carousel :images="images"/>
 		</div>
-		<SearchForm/>
-
+    <div class="text-center">
+      <h1 class="promote">The Number One Online Source Sharing Tool</h1>
+    </div>
     <Latest/>
       <Agents/>
 
@@ -46,5 +48,9 @@
 	}
 	.md-elevation-5 {
 		width: 100%;
-	}
+  }
+  .promote {
+    letter-spacing: 7px;
+    font-weight: bold;
+  }
 </style>

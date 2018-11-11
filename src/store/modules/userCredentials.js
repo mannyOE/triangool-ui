@@ -75,7 +75,6 @@ const actions = {
     const params = dargs.parameters;
     const storeAction = dargs.action;
     const token = state.sub.token;
-    console.log(state.sub);
     // Add token to args
     params.token = token;
     // Call action and return promise

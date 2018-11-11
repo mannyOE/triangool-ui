@@ -8,13 +8,34 @@ export default {
     latest: 'api/listings/latest',
     one: 'api/listings/one',
     edit: 'api/listings/modify',
+    create: 'api/listings/create-item',
     delete: '/api/listings/delete',
     report: 'api/listings/report',
     block: 'api/listings/block', 
+    unusedFiles: 'api/listings/remove-unused-files'
   },
 
   fetchAll(dargs){
     return blackAxios.get(this.resource.all, dargs)
+      .then(function (response) {
+        return response.data;
+      })
+      .catch(function (error) {
+        return error;
+    })
+  },
+  removeUnusedFiles (dargs){
+    return blackAxios.post(this.resource.unusedFiles, {images: dargs})
+      .then(function (response) {
+        return response.data;
+      })
+      .catch(function (error) {
+        return error;
+    })
+  },
+
+  create (dargs){
+    return blackAxios.post(this.resource.create, dargs)
       .then(function (response) {
         return response.data;
       })

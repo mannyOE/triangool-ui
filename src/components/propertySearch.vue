@@ -1,5 +1,5 @@
 <template>
-	<div class="container" style="margin: 40px auto;">		    
+	<div class="container" style="margin: -15px auto 0px auto;">		    
 		    <div class=" row">
 		      <div class="col-lg-6  col-md-4  col-xs-12">
 		        <md-field>

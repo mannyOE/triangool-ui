@@ -2,7 +2,7 @@
     <div>
         <section class="content-header">
       <h1>
-        Add Your New Home Appliances Here
+        Add Your New Electronics Here
       </h1>
     </section>
 
@@ -46,7 +46,7 @@
                     <el-button size="mini" round class="btn-primary" @click="geo_location()">Generate GPS</el-button>
                 </div>
                 </div>
-                  <p class="help-block">Set the exact GPS Location of this apliance.</p>
+                  <p class="help-block">Set the GPS Location for this item.</p>
                 </div>
 
                 <!-- <div class="form-group">
@@ -61,7 +61,7 @@
 
 
                  <div class="form-group">
-                  <label for="exampleInputPassword1">Appliance Description</label>
+                  <label for="exampleInputPassword1">Listing Description</label>
                   <textarea rows="10" v-model="singleListing.description" class="form-control">
                   </textarea>
                   <p class="help-block">Brief Description of listing.</p>
@@ -243,7 +243,7 @@ export default {
                     
                     t.singleListing.images = t.images;
                     t.singleListing.agent = t.user.Id;
-                    t.singleListing.category = 'appliances';
+                    t.singleListing.category = 'electronics';
                     t.callWithToken({
                         parameters: t.singleListing,
                         action: t.createListing

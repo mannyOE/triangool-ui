@@ -158,7 +158,7 @@ body.hold-transition .main-header .logo {
     overflow-x: hidden;
 }
 .ovrf:hover::-webkit-scrollbar{
-     width: 5px;
+     width: 10px;
      transition: all 1s ease;
 }
 .ovrf::-webkit-scrollbar {
@@ -2484,7 +2484,7 @@ a:focus {
 .nav-stacked > li.active > a,
 .nav-stacked > li.active > a:hover {
   background: transparent;
-  color: #444;
+  color: #fff !important;
   border-top: 0;
   border-left-color: #3c8dbc;
 }

@@ -38,6 +38,18 @@ const actions = {
       return result;
     })
   },
+  createListing ({ dispatch, commit, state }, args) {
+    return api.create(args)
+    .then(function (result) {
+      return result;
+    })
+  },
+  removeUnusedFiles ({ dispatch, commit, state }, args) {
+    return api.removeUnusedFiles(args)
+    .then(function (result) {
+      return result;
+    })
+  },
   setRedirectError ({ commit, state }, val) {
     commit('setRedirectError', val);
   },
@@ -65,12 +77,7 @@ const mutations = {
 
   resetState (state) {
     state.sub = {
-      error: false,
-      userError: false,
-      redirectError: false,
-      autherror: false,
-      autherrorMsg: 'Email or password is incorrect',
-      loading: false,
+      singleListing: {},
     };
   },
 

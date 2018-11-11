@@ -2,7 +2,7 @@
     <div>
         <section class="content-header">
       <h1>
-        Add Your New Home Appliances Here
+        Add Your New Appartments Here
       </h1>
     </section>
 
@@ -18,13 +18,13 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Store Location [ Required ]</label>
+                  <label for="exampleInputEmail1">Apartment Location [ Required ]</label>
                   <input type="text" v-model="singleListing.location" class="form-control" id="exampleInputEmail1" >
                   <p class="help-block">What is the address where this item can be found.</p>
                 </div>               
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">How Much? [ Required ]</label>
+                  <label for="exampleInputPassword1">Rent/Year [ Required ]</label>
                   <input type="text" v-model="singleListing.cost" class="form-control" id="exampleInputPassword1" >
                   <p class="help-block">what is the rent price for this apartment.</p>
                 </div>
@@ -46,10 +46,10 @@
                     <el-button size="mini" round class="btn-primary" @click="geo_location()">Generate GPS</el-button>
                 </div>
                 </div>
-                  <p class="help-block">Set the exact GPS Location of this apliance.</p>
+                  <p class="help-block">Select the category this item belongs.</p>
                 </div>
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <label for="exampleInputPassword1">Apartment Type</label>
                   <select type="text" v-model="singleListing.apartmentType" class="form-control" id="exampleInputPassword1" >
                       <option value="flat">Flat</option>
@@ -57,11 +57,11 @@
                       <option value="single-room">Single Room</option>
                   </select>
                   <p class="help-block">Select the apartment type.</p>
-                </div> -->
+                </div>
 
 
                  <div class="form-group">
-                  <label for="exampleInputPassword1">Appliance Description</label>
+                  <label for="exampleInputPassword1">Apartment Description</label>
                   <textarea rows="10" v-model="singleListing.description" class="form-control">
                   </textarea>
                   <p class="help-block">Brief Description of listing.</p>
@@ -243,7 +243,7 @@ export default {
                     
                     t.singleListing.images = t.images;
                     t.singleListing.agent = t.user.Id;
-                    t.singleListing.category = 'appliances';
+                    t.singleListing.category = 'apartments';
                     t.callWithToken({
                         parameters: t.singleListing,
                         action: t.createListing
