@@ -24,6 +24,9 @@ import newElectronic from "@/app/pages/dash/new_electronic"
 import Settings from "@/app/pages/dash/settings"
 
 
+import allApartments from "@/app/pages/dash/apartments"
+import modifyAppartment from "@/app/pages/dash/modifyApartment"
+
 // dashboard pages
 
 
@@ -137,9 +140,15 @@ const router = new Router({
         },
 
         {
+          path: 'modify-appartment-item/:id',
+          name: 'modify-items-app',
+          component: modifyAppartment
+        },
+
+        {
           path: 'all-appartment-items',
           name: 'all-items-app',
-          component: dashHome
+          component: allApartments
         },
 
 

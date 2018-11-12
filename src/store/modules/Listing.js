@@ -25,6 +25,15 @@ const actions = {
       return result;
     })
   },
+
+  fetchMyListings ({ dispatch, commit, state }, args) {
+    return api.fetchMine(args)
+    .then(function (result) {
+      console.log(result)
+      commit('setAllListing', result.result)
+      return result;
+    })
+  },
   fetchLatestListings ({ dispatch, commit, state }, args) {
     return api.fetchLatest(args)
     .then(function (result) {

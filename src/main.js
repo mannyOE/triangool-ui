@@ -12,6 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import './globals'
+import VueNumeric from 'vue-numeric'
 
 // require styles
 import 'swiper/dist/css/swiper.css'
@@ -22,7 +23,7 @@ Vue.use(ElementUI);
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-
+Vue.use(VueNumeric)
 
 import jQuery from './assets/dist/js/jquery-2.2.3.min.js'
 import app from './assets/dist/js/app.js'
@@ -55,7 +56,6 @@ Vue.use(VueGoogleMaps, {
   // then disable the following:
   // installComponents: true,
 });
-
 Vue.use(VeeValidate);
 require ('./assets/class/css/main.css')
 require ('./assets/class/fonts/font-awesome.min.css')

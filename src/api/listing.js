@@ -4,8 +4,9 @@ import { blackAxios } from '@/config';
 
 export default {
   resource: {
-    all: 'api/listings/all',
-    latest: 'api/listings/latest',
+    all: 'api/listings',
+    latest: 'api/listings',
+    mine: 'api/listings/my-listings',
     one: 'api/listings/one',
     edit: 'api/listings/modify',
     create: 'api/listings/create-item',
@@ -44,7 +45,17 @@ export default {
     })
   },
   fetchLatest(dargs){
-    return blackAxios.get(this.resource.latest, dargs)
+    return blackAxios.get(this.resource.latest+'?latest=true', dargs)
+      .then(function (response) {
+        return response.data;
+      })
+      .catch(function (error) {
+        return error;
+    })
+  },
+
+  fetchMine(dargs){
+    return blackAxios.get(this.resource.mine+'?page='+dargs.page+'&&category='+dargs.category, {headers: {token:dargs.token}})
       .then(function (response) {
         return response.data;
       })

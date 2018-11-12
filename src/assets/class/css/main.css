@@ -2655,7 +2655,7 @@ footer a {
   min-width: 48px;
   height: 48px;
   text-align: center;
-  line-height: 36px;
+  line-height: 36px !important;
   margin-right: 10px;
 }
 .pagination .active > a,
@@ -2666,6 +2666,11 @@ footer a {
 .pagination > .active > span:hover {
   background-color: #4caf50 !important;
   border: none;
+}
+
+.pagination > li > a:hover {
+  background-color: #4caf50 !important;
+  color: #fff !important;
 }
 .pagination > li:first-child > a,
 .pagination .pagination > li:first-child > span {

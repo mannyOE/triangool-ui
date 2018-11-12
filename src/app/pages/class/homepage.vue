@@ -5,7 +5,7 @@
 			<Carousel :images="images"/>
 		</div>
     <div class="text-center">
-      <h1 class="promote">The Number One Online Source Sharing Tool</h1>
+      <h1 class="promote">The Number One Online Classifieds Sharing Tool</h1>
     </div>
     <Latest/>
       <Agents/>

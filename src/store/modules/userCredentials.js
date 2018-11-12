@@ -71,7 +71,7 @@ const actions = {
      * }
      * @returns Promise
      */
-
+      
     const params = dargs.parameters;
     const storeAction = dargs.action;
     const token = state.sub.token;

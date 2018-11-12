@@ -18,10 +18,30 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Listing Title [ Required ]</label>
+                  <input type="text" v-model="singleListing.title" class="form-control" id="exampleInputEmail1" >
+                  <p class="help-block">Give this Item a title that will help users find it.</p>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputEmail1">Store Location [ Required ]</label>
                   <input type="text" v-model="singleListing.location" class="form-control" id="exampleInputEmail1" >
                   <p class="help-block">What is the address where this item can be found.</p>
                 </div>               
+
+                 <div class="form-group">
+                  <label for="exampleInputEmail1">Location State [ Required ]</label>
+                  <el-select v-model="singleListing.state" name="movies" filterable placeholder="Select State" 
+                  class="" style="color: #000 !important; width: 100%;">
+				    <el-option 
+				      v-for="state in $states"
+				      :key="state.value"
+				      :label="state.show"
+				      :value="state.value">
+				    </el-option>
+			    </el-select>
+                  <p class="help-block">In which state can this item be found.</p>
+                </div>   
+
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">How Much? [ Required ]</label>
@@ -219,6 +239,13 @@ export default {
                         });
                         return;
                     }
+                    if(t.singleListing.state===undefined || t.singleListing.state.length<1){
+                        this.$notify({
+                            title: 'Notice',
+                            message: "Location State is not set"
+                        });
+                        return;
+                    }
                     if(t.singleListing.cost===undefined||t.singleListing.cost.length<1){
                         this.$notify({
                             title: 'Notice',
@@ -243,6 +270,7 @@ export default {
                     
                     t.singleListing.images = t.images;
                     t.singleListing.agent = t.user.Id;
+                    t.singleListing.agentName = t.user.firstName+' '+t.user.lastName;
                     t.singleListing.category = 'electronics';
                     t.callWithToken({
                         parameters: t.singleListing,
